@@ -2,7 +2,7 @@
 
 docker run \
   -v `pwd`/cryptonote:/cryptonote \
-  -v /netdisk/cache/ccache:/root/.ccache \
+  -v `pwd`/.ccache:/root/.ccache \
   usrcoin/newcoin:1.0.0 /bin/bash -c \
 "cd /cryptonote/build;cmake;make"
 

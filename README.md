@@ -1,2 +1,3 @@
 # buildcoins
-general scripts to build coins
+----------
+general scripts to build crypto coins

@@ -1,5 +1,5 @@
 [[ ! -d bitcoin ]] && git clone https://github.com/bitcoin/bitcoin.git
-docker run \
+docker run --name buildBitcoin \
   -v `pwd`/bitcoin:/bitcoin \
   -v `pwd`/.ccache:/root/.ccache \
   usrcoin/newcoin:1.0.0 /bin/bash -c \

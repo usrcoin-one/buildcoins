@@ -1,0 +1,10 @@
+[[ ! -d bitcoin ]] && git clone https://github.com/bitcoin/bitcoin.git
+docker run \
+  -v `pwd`/bitcoin:/bitcoin \
+  -v /netdisk/cache/ccache:/root/.ccache \
+  usrcoin/newcoin:1.0.0 /bin/bash -c \
+  "cd /bitcoin;./autogen.sh;./configure;make"
+
+#"cd /bitcoin;make"
+
+sudo chown -R $(id -nu): bitcoin

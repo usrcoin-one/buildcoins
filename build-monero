@@ -1,0 +1,11 @@
+[[ ! -d monero ]] && (git clone https://github.com/usrcoin-forks/monero.git;mkdir -p monero/build)
+mkdir -p monero/build
+docker run --name buildmonero \
+  -v `pwd`/monero:/monero \
+  -v `pwd`/.ccache:/root/.ccache \
+  usrcoin/newcoin:1.0.0 /bin/bash -c \
+"cd /monero/build;cmake ..;make release-static-linux-x86_64"
+
+
+
+sudo chown -R $(id -nu): monero

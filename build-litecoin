@@ -1,0 +1,11 @@
+[[ ! -d litecoin ]] && git clone https://github.com/litecoin-project/litecoin.git
+
+docker run --name buildlitecoin \
+  -v `pwd`/litecoin:/litecoin \
+  -v `pwd`/.ccache:/root/.ccache \
+  usrcoin/newcoin:1.0.0 /bin/bash -c \
+  "cd /litecoin;./autogen.sh;./configure;make"
+
+#"cd /litecoin;make"
+
+sudo chown -R $(id -nu): litecoin

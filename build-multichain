@@ -1,0 +1,10 @@
+[[ ! -d multichain ]] && git clone https://github.com/MultiChain/multichain.git
+docker run --name buildmultichain \
+  -v `pwd`/multichain:/multichain \
+  -v `pwd`/.ccache:/root/.ccache \
+  usrcoin/newcoin:1.0.0 /bin/bash -c \
+  "cd /multichain;./autogen.sh;./configure;make"
+
+#"cd /multichain;make"
+
+sudo chown -R $(id -nu): multichain

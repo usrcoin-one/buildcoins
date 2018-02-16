@@ -1,0 +1,11 @@
+[[ ! -d usrcoin ]] && (git clone https://github.com/usrcoin/usrcoin.git)
+mkdir -p usrcoin/build
+docker run --name buildusrcoin \
+  -v `pwd`/usrcoin:/usrcoin \
+  -v `pwd`/.ccache:/root/.ccache \
+  usrcoin/newcoin:1.0.0 /bin/bash -c \
+"cd /usrcoin/build;cmake ..;make"
+
+
+
+sudo chown -R $(id -nu): usrcoin

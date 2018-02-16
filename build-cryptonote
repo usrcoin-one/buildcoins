@@ -1,4 +1,4 @@
-[[ ! -d cryptonote ]] && (git clone https://github.com/usrcoin-eval/cryptonote.git;cd ./cryptonote;git fetch;git checkout usrcoin;mkdir build)
+[[ ! -d cryptonote ]] && (git clone https://github.com/cryptonotefoundation/cryptonote.git)
 mkdir -p cryptonote/build
 docker run --name buildCryptonote \
   -v `pwd`/cryptonote:/cryptonote \
